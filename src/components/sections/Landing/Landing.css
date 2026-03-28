@@ -1,0 +1,204 @@
+.landing {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #000 0%, #180800 60%, #2a0d00 100%);
+  padding: 100px clamp(20px, 6vw, 100px);
+}
+
+.landingCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.landingGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(30px, 5vw, 80px);
+  align-items: center;
+  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 800px) {
+  .landingGrid { grid-template-columns: 1fr; }
+}
+
+/* EDL sequence */
+.edlSequence {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.edlStep {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.015);
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.edlStep::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0; width: 0;
+  background: rgba(255, 94, 0, 0.08);
+  transition: width 0.6s;
+}
+
+.edlStep.active::before { width: 100%; }
+.edlStep.active { border-color: rgba(255, 94, 0, 0.4); }
+.edlStep.done   { border-color: rgba(0, 255, 136, 0.2); background: rgba(0, 255, 136, 0.02); }
+
+.edlNum {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  width: 30px;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.edlStep.active .edlNum { color: #FF5E00; }
+.edlStep.done  .edlNum  { color: #00FF88; }
+
+.edlInfo { flex: 1; position: relative; }
+
+.edlName {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+}
+
+.edlDetail {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.38);
+  margin-top: 2px;
+}
+
+.edlCheck {
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.4s;
+  flex-shrink: 0;
+  color: #00FF88;
+  position: relative;
+}
+
+.edlStep.done .edlCheck { opacity: 1; }
+
+/* Heat gauge */
+.heatGauge {
+  padding: 16px;
+  border: 1px solid rgba(255, 94, 0, 0.2);
+  background: rgba(255, 94, 0, 0.03);
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+.heatTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.heatTitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.38);
+  text-transform: uppercase;
+}
+
+.heatVal {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: #FF5E00;
+  text-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
+  transition: all 0.3s;
+}
+
+.heatBarWrap {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.heatBar {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #FFAA00, #FF5E00, #ff0000);
+  box-shadow: 0 0 12px rgba(255, 94, 0, 0.6);
+  transition: width 0.5s;
+}
+
+/* Altitude */
+.altDisplay {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.altLbl {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.38);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.altVal {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: #fff;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  transition: all 0.1s;
+  display: block;
+}
+
+.altUnit {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.38);
+  text-transform: uppercase;
+  margin-top: 4px;
+  display: block;
+}
+
+/* EDL run button */
+.edlBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 12px 28px;
+  border: 1.5px solid rgba(255, 94, 0, 0.5);
+  background: rgba(255, 94, 0, 0.08);
+  color: #FF5E00;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.edlBtn:hover:not(:disabled) { background: rgba(255, 94, 0, 0.2); border-color: #FF5E00; }
+.edlBtn:disabled { opacity: 0.4; cursor: not-allowed; }

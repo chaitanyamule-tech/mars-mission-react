@@ -1,0 +1,122 @@
+.complete {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.completeCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.completeInner {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+}
+
+/* Mission patch */
+.completePatch {
+  width: clamp(100px, 15vw, 160px);
+  height: clamp(100px, 15vw, 160px);
+  border-radius: 50%;
+  border: 2px solid rgba(232, 101, 26, 0.4);
+  background: radial-gradient(circle at 40% 35%, #2a0d00, #0d0400);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+  box-shadow: 0 0 60px rgba(232, 101, 26, 0.2), inset 0 0 30px rgba(0, 0, 0, 0.8);
+  animation: patchPulse 4s ease-in-out infinite;
+}
+
+@keyframes patchPulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(232, 101, 26, 0.15); }
+  50%       { box-shadow: 0 0 80px rgba(232, 101, 26, 0.35); }
+}
+
+.patchInner {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: #E8651A;
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Title */
+.completeTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 10vw, 7rem);
+  letter-spacing: 0.06em;
+  line-height: 0.95;
+  margin-bottom: 24px;
+}
+
+/* Body */
+.completeBody {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.85;
+  margin-bottom: 40px;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Stat grid */
+.statGrid {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.statBlock { text-align: center; }
+
+.sbVal {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  display: block;
+}
+
+.sbLbl {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.38);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Restart button */
+.restartBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 36px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.restartBtn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}

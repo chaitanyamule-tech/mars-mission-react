@@ -1,0 +1,50 @@
+.sideNav {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: opacity 0.3s;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.navItem.active { opacity: 1; }
+.navItem:hover  { opacity: 0.7; }
+
+.navDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00FF88;
+  flex-shrink: 0;
+  transition: background 0.4s, transform 0.3s;
+}
+
+.navItem.active .navDot { transform: scale(1.5); }
+.navItem.mars .navDot   { background: #E8651A; }
+
+.navLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .sideNav { display: none; }
+}

@@ -1,0 +1,72 @@
+.cursorWrap {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s;
+}
+
+.curH,
+.curV {
+  position: absolute;
+  background: rgba(0, 255, 136, 0.7);
+  transition: background 0.3s;
+}
+
+.curH {
+  width: 28px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.curV {
+  height: 28px;
+  width: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.curRing {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid rgba(0, 255, 136, 0.6);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.curDot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #00FF88;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Mars phase — rust color */
+.cursorWrap.marsCursor .curH,
+.cursorWrap.marsCursor .curV {
+  background: rgba(225, 101, 26, 0.8);
+}
+
+.cursorWrap.marsCursor .curRing {
+  border-color: rgba(225, 101, 26, 0.7);
+}
+
+.cursorWrap.marsCursor .curDot {
+  background: #E8651A;
+}
+
+/* Click shrink */
+.cursorWrap.clicked .curRing {
+  transform: translate(-50%, -50%) scale(0.6);
+}

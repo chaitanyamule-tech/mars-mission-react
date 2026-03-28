@@ -1,0 +1,146 @@
+.launch {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #050810 0%, #0a0605 100%);
+  padding: 100px clamp(20px, 6vw, 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.launchCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.launchGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(30px, 5vw, 80px);
+  align-items: center;
+  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 800px) {
+  .launchGrid { grid-template-columns: 1fr; }
+  .rocketCol { order: -1; }
+}
+
+/* Rocket */
+.rocketCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rocketSvg {
+  width: clamp(120px, 18vw, 200px);
+  filter: drop-shadow(0 0 20px rgba(255, 150, 0, 0.4));
+  animation: float 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.exhaustCanvas {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: -4px auto 0;
+}
+
+/* Telemetry panel */
+.telePanel {
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  background: rgba(0, 255, 136, 0.02);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 28px;
+}
+
+.teleHeader {
+  padding: 10px 16px;
+  background: rgba(0, 255, 136, 0.06);
+  border-bottom: 1px solid rgba(0, 255, 136, 0.12);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: #00FF88;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+
+.teleBody { padding: 12px 16px; }
+
+.gaugeRow { margin-bottom: 14px; }
+
+.gaugeMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gaugeKey { color: rgba(255, 255, 255, 0.38); }
+.gaugeVal { color: #00FF88; }
+.gaugeVal.warn { color: #FFD60A; }
+
+.gaugeTrack {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.gaugeFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* Stage info */
+.stageInfo {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid rgba(255, 94, 0, 0.2);
+  background: rgba(255, 94, 0, 0.04);
+  border-radius: 2px;
+}
+
+.stageNum {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: #FF5E00;
+  line-height: 1;
+}
+
+.stageLbl {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 94, 0, 0.6);
+  text-transform: uppercase;
+}
+
+.stageDesc {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 6px;
+  font-weight: 300;
+  line-height: 1.6;
+}

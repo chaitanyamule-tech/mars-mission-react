@@ -1,0 +1,65 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 99990;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.loader.out {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+.loaderLogo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  letter-spacing: 0.6em;
+  color: #fff;
+  animation: fadeInUp 0.8s 0.3s both;
+}
+
+.loaderSub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.35em;
+  color: #00FF88;
+  animation: fadeInUp 0.8s 0.6s both;
+}
+
+.loaderBar {
+  width: 260px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.loaderFill {
+  height: 100%;
+  background: #00FF88;
+  box-shadow: 0 0 12px #00FF88;
+  width: 0%;
+  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loaderSeq {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.08em;
+  line-height: 2;
+  max-width: 320px;
+  text-align: center;
+  min-height: 6em;
+  animation: fadeInUp 0.8s 0.9s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,17 @@
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: #00FF88;
+  z-index: 1000;
+  box-shadow: 0 0 10px #00FF88;
+  transition: background 0.6s, box-shadow 0.6s;
+  pointer-events: none;
+}
+
+.progressBar.mars {
+  background: #E8651A;
+  box-shadow: 0 0 10px #E8651A;
+}

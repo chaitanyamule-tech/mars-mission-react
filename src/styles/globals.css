@@ -1,0 +1,149 @@
+/* ═══════════════════════════════════
+   GLOBAL STYLES — Mission ARES I
+═══════════════════════════════════ */
+
+:root {
+  --black:      #030508;
+  --deep:       #07090F;
+  --earth:      #1a6fd4;
+  --earthglow:  #4da6ff;
+  --launch:     #FF5E00;
+  --fire:       #FFAA00;
+  --mars:       #C1440E;
+  --marsglow:   #E8651A;
+  --dust:       #8B3A0F;
+  --telemetry:  #00FF88;
+  --warn:       #FFD60A;
+  --muted:      rgba(255, 255, 255, 0.38);
+  --border:     rgba(255, 255, 255, 0.07);
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-mono:    'Share Tech Mono', monospace;
+  --font-body:    'Barlow Condensed', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: #E8EEFF;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: rgba(0, 255, 136, 0.25); border-radius: 2px; }
+
+/* Section separator */
+.sec-div {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.07), transparent);
+}
+
+/* Reveal utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+}
+
+/* Phase label */
+.phase-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+/* Section title */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 8rem);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  margin-bottom: 22px;
+}
+
+/* Section body */
+.section-body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 520px;
+}
+
+/* Data card */
+.data-card {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.025);
+  padding: 14px 18px;
+  border-radius: 2px;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.data-row:last-child { border-bottom: none; }
+.data-key { color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+.data-val { color: var(--telemetry); letter-spacing: 0.06em; }
+.data-val.warn { color: var(--warn); }
+.data-val.mars { color: var(--marsglow); }
+
+/* Chip tag */
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  padding: 5px 12px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+/* Blink animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+/* Wheel animation */
+@keyframes wheel {
+  0%   { opacity: 1; top: 6px; }
+  100% { opacity: 0; top: 18px; }
+}
